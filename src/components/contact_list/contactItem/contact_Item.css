@@ -1,0 +1,7 @@
+.block{
+    background-color: #fff;
+    transition: all 500ms;
+}
+.block:hover{
+    box-shadow:7px 6px 20px 0px black;
+}

@@ -1,6 +1,6 @@
 body{
   margin-top:20px;
-  background-color: #edf0f0;    
+  background-color: #dadada;    
 }
 .btn-primary, 
 .btn-primary:hover, 
@@ -16,7 +16,7 @@ body{
   border: 1px solid #3bc0c3;
 }
 .p-t-10 {
-  padding-top: 10px !important;
+  padding-top: 10px;
 }
 .media-main a.pull-left {
   width: 100px;
@@ -24,6 +24,7 @@ body{
 .thumb-lg {
   height: 84px;
   width: 84px;
+  border-radius: 50%;
 }
 .media-main .info {
   overflow: hidden;
@@ -34,7 +35,7 @@ body{
   margin-bottom: 5px;
 }
 .social-links li a {
-  background: #EFF0F4;
+  background: rgb(220, 220, 221);
   width: 30px;
   height: 30px;
   line-height: 30px;
