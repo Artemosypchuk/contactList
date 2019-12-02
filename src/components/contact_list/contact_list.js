@@ -3,15 +3,29 @@ import {Fragment} from 'react';
 import './contact_list.css';
 import ContactItem from "./contactItem/contact_Item" 
 
-const ContactList = () =>{
-
+const ContactList = ({ContactList}) =>{
+    
+    const listItem = ContactList.map((item)=>{
+        return<ContactItem
+        avatar={item.avatar} 
+        name={item.name} 
+        description={item.description}
+        gender={item.gender}
+        facebbok={item.facebooklist}
+        twitt={item.twitterList}
+        linked={item.linkeDin}
+        skyPe={item.skype}
+        messs={item.messager}></ContactItem>
+    })
     return(
         <Fragment>
-
             <h2>ContactList</h2>
-            <ContactItem></ContactItem>
+            {listItem}
         </Fragment>
         
     )
+    
 }
+
 export default ContactList;
+
