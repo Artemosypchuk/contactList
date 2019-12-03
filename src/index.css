@@ -45,3 +45,7 @@ body{
   -webkit-border-radius: 50%;
   color: #7A7676;
 }
+h2,h1{
+  text-align: center;
+  color: #7A7676;
+}
