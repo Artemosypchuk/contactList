@@ -37,6 +37,7 @@ li > a:hover {
 .favor {
   border: solid 10px rgb(224, 228, 2);
   border-radius: 10px;
+  box-shadow: 7px 6px 20px 0px rgb(224, 228, 2);
 }
 .star {
   position: absolute;
@@ -49,7 +50,7 @@ li > a:hover {
 }
 .star-actived {
   position: absolute;
-  left: 60%;
+  left: 59%;
   bottom: 0px;
   color: rgb(224, 228, 2);
   cursor: pointer;
