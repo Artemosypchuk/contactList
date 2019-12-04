@@ -80,8 +80,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="container bootstrap snippet">
-        <h1> Contact List </h1> <Search> </Search>{""}
-        <ContactList ContactList={this.List}> </ContactList>{""}
+        <h1> Contact List </h1> <Search> </Search>
+        {""}
+        <ContactList ContactList={this.List}> </ContactList>
+        {""}
       </div>
     );
   }
