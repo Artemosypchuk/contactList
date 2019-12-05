@@ -15,7 +15,7 @@ class ContactItem extends React.Component {
     skyPe: this.props.skyPe,
     btnStatus: false,
     bordered: false,
-    stared: false,
+    stared: this.props.favorite,
     id: this.props.id
   };
   RandomAvatar = () => {
@@ -28,7 +28,7 @@ class ContactItem extends React.Component {
   Favorite = () => {
     this.setState({
       stared: !this.state.stared
-    });
+      });
   };
   Active = () => {
     this.setState({
@@ -84,7 +84,8 @@ class ContactItem extends React.Component {
           <div className="panel">
             <div className="panel-body p-t-10">
               <div className="media-main">
-                <a className="pull-left" href="{foo}">
+                <a className="pull-left" href="#">
+
                   <img className="thumb-lg img-circle bx-s" src={url} alt="" />
                 </a>
                 <div className="pull-right btn-group-sm">
@@ -98,11 +99,12 @@ class ContactItem extends React.Component {
                     <i className="fa fa-pencil"></i>
                   </a>
                   <a
-                    href="{foo}"
+                    href="#"
                     className="btn btn-danger tooltips"
                     data-placement="top"
                     data-toggle="tooltip"
                     data-original-title="Delete"
+                    onClick={this.props.onDelete}
                   >
                     <i className="fa fa-close"></i>
                   </a>

@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import "./contact_list.css";
 import ContactItem from "./contactItem/contact_Item";
 
-const ContactList = ({ ContactList }) => {
+const ContactList = ({ ContactList, onDelete }) => {
   const listItem = ContactList.map(item => {
     return (
       <ContactItem
@@ -16,7 +16,9 @@ const ContactList = ({ ContactList }) => {
         linked={item.linkeDin}
         skyPe={item.skype}
         messs={item.messager}
-        id={item.id}
+        key={item.id}
+        onDelete={()=>onDelete(item.id)}
+        favorite={item.favorite}
       ></ContactItem>
     );
   });
