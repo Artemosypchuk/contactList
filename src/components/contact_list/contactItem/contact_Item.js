@@ -15,7 +15,7 @@ class ContactItem extends React.Component {
     skyPe: this.props.skyPe,
     btnStatus: false,
     bordered: false,
-    stared: this.props.favorite,
+
     id: this.props.id
   };
   RandomAvatar = () => {
@@ -23,11 +23,6 @@ class ContactItem extends React.Component {
     this.setState({
       avatar: newAvatar,
       btnStatus: !this.state.btnStatus
-    });
-  };
-  Favorite = () => {
-    this.setState({
-      stared: !this.state.stared
     });
   };
   Active = () => {
@@ -64,14 +59,14 @@ class ContactItem extends React.Component {
     let btnStyle = "btn btn-warning random";
     let border = "col-sm-6 offset-3 block";
     let starStatus = "star";
-    
+
     if (this.state.btnStatus) {
       btnStyle = "btn btn-danger random";
     }
     if (this.state.bordered) {
       border = "col-sm-6 offset-3 block bordered";
     }
-    if (this.state.stared) {
+    if (this.props.favorite) {
       starStatus = "star-actived";
       border = "col-6 offset-3 block favor";
     }
@@ -91,7 +86,7 @@ class ContactItem extends React.Component {
                 </a>
                 <div className="pull-right btn-group-sm">
                   <a
-                    href="{foo}"
+                    href="#"
                     className="btn btn-success tooltips"
                     data-placement="top"
                     data-toggle="tooltip"
@@ -111,7 +106,7 @@ class ContactItem extends React.Component {
                   </a>
                 </div>
                 <div className="info">
-                  <p className="text-muted">star is:{stared}</p>
+                  <p className="text-muted">{gender}</p>
                   <h4>{name}</h4>
                   <p className="text-muted">{description}</p>
                 </div>

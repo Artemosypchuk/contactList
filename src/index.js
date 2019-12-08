@@ -106,52 +106,15 @@ class App extends React.Component {
   };
 
   Favor = id => {
-    // const index = this.state.List.find(e => e.id === id);
-    // let FavList = [];
-    // let UnFavList = [];
-    // for (let i = 0; i < this.state.List.length; i++) {
-    //   if (index.favorite) {
-    //     index.favorite = !index.favorite
-    //     UnFavList[i] = this.state.List[i];
-    //   }
-    //   index.favorite = !index.favorite
-    //   FavList[i] = this.state.List[i];
-    // }
-    // console.log(index)
-    // console.log("fav", FavList, "unfav", UnFavList);
-    // let newList = FavList.concat(UnFavList);
-    // this.setState(() => {
-    //   return {
-    //     List: newList
-    //   };
-    // });
-    ///-----------------------------------------------------------------------------
-    // const index = this.state.List.find(elem => elem.id === id);
-    // const newList = this.state.List.map(o => {
-    //   if (o.id === index.id) {
-    //     index.favorite = !index.favorite;
-    //     return index;
-    //   }
-    //   return o;
-    // });
-    // console.log(index.id, "index.favorite=>", index.favorite);
-    // this.setState(() => {
-    //   return (
-    //     console.log(newList),
-    //     {
-    //       List: newList
-    //     }
-    //   );
-    // });
-    //////////////////--------------------------------------------------------------------
-    // const index = this.state.List.find(elem => elem.id === id);
-    // console.log("was",index, index.favorite);
-    // this.setState(() => {
-    //   index.favorite = !index.favorite;
-    //   console.log("now",index, index.favorite);
-    //   console.log(this.state.List);
-    //   return this.state.List;
-    // });
+    const index = this.state.List.findIndex(elem => elem.id === id);
+    var NewList = this.state.List.slice();
+    NewList[index].favorite = !NewList[index].favorite;
+
+    this.setState(() => {
+      return {
+        favorite:this.NewList
+      };
+    });
   };
 
   render() {

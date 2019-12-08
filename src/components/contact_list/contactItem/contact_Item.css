@@ -42,7 +42,7 @@ li > a:hover {
   position: absolute;
   left: 60%;
   bottom: 10px;
-  color: rgba(204, 204, 204, 0.274);
+  color: rgba(204, 204, 204, 0.8);
   cursor: pointer;
   font-size: 24px;
   transition: all 300ms;
