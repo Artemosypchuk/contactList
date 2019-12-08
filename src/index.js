@@ -7,7 +7,7 @@ import ContactList from "./components/contact_list/contact_list";
 class App extends React.Component {
   state = {
     List: [
-      { 
+      {
         favorite: true,
         name: "Jack Sparrow",
         description: "Capitan",
@@ -22,8 +22,8 @@ class App extends React.Component {
         id: 1
       },
 
-      { 
-        favorite: false,
+      {
+        favorite: true,
         name: "Julia Roberts",
         description: "Treny",
         avatar: 33,
@@ -38,7 +38,7 @@ class App extends React.Component {
         id: 2
       },
 
-      { 
+      {
         favorite: true,
         name: "Geoffrey Rush",
         description: "Distructor",
@@ -53,8 +53,8 @@ class App extends React.Component {
         id: 3
       },
 
-      { 
-        favorite: false,
+      {
+        favorite: true,
         name: "Gal Gadot",
         description: "Cowboy",
         avatar: 75,
@@ -68,8 +68,8 @@ class App extends React.Component {
         id: 4
       },
 
-      { 
-        favorite: false,
+      {
+        favorite: true,
         name: "Sylvester Stallone",
         description: "Descriptor",
         avatar: 1,
@@ -83,10 +83,9 @@ class App extends React.Component {
         id: 5
       }
     ]
-  }
+  };
 
   onDelete = id => {
-
     const index = this.state.List.findIndex(elem => elem.id === id);
     let NewList = [];
     let counter = 0;
@@ -97,21 +96,54 @@ class App extends React.Component {
       }
     }
     this.setState(() => {
-      return {
-        List: NewList
-      }
-    })
+      return (
+        console.log(NewList),
+        {
+          List: NewList
+        }
+      );
+    });
+  };
 
-  }
+  Favor = id => {
+    const index = this.state.List.find(elem => elem.id === id);
+    const newList = this.state.List.map(o => {
+      if (o.id === index.id) {
+        index.favorite = !index.favorite;
+        return index;
+      }
+      return o;
+    });
+    console.log(index.id, "index.favorite=>", index.favorite);
+
+    this.setState(() => {
+      return (
+        console.log(newList),
+        {
+          List: newList
+        }
+      );
+    });
+
+    //     const index = this.state.List.find(elem => elem.id === id);
+    //     console.log(index,index.favorite);
+
+    //     this.setState(() => {
+    //       index.favorite = !index.favorite;
+    // console.log(this.state.List)
+    //       return (this.state.List);
+    //     });
+  };
+
   render() {
     return (
       <div className="container bootstrap snippet">
         <h1> Contact List </h1> <Search> </Search>
-        {""}
-        <ContactList ContactList={this.state.List}
-          onDelete={this.onDelete}>
-        </ContactList>
-        {""}
+        <ContactList
+          ContactList={this.state.List}
+          Favor={this.Favor}
+          onDelete={this.onDelete}
+        ></ContactList>
       </div>
     );
   }

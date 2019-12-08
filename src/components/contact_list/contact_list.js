@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import "./contact_list.css";
 import ContactItem from "./contactItem/contact_Item";
 
-const ContactList = ({ ContactList, onDelete }) => {
+const ContactList = ({ ContactList, onDelete, Favor }) => {
   const listItem = ContactList.map(item => {
     return (
       <ContactItem
@@ -17,8 +17,9 @@ const ContactList = ({ ContactList, onDelete }) => {
         skyPe={item.skype}
         messs={item.messager}
         key={item.id}
-        onDelete={()=>onDelete(item.id)}
+        onDelete={() => onDelete(item.id)}
         favorite={item.favorite}
+        Favor={() => Favor(item.id)}
       ></ContactItem>
     );
   });

@@ -28,7 +28,7 @@ class ContactItem extends React.Component {
   Favorite = () => {
     this.setState({
       stared: !this.state.stared
-      });
+    });
   };
   Active = () => {
     this.setState({
@@ -51,7 +51,8 @@ class ContactItem extends React.Component {
       linked,
       messs,
       skyPe,
-      id
+      id,
+      stared
     } = this.state;
 
     let url = `https://randomuser.me/api/portraits/${gender}/${avatar}.jpg`;
@@ -63,6 +64,7 @@ class ContactItem extends React.Component {
     let btnStyle = "btn btn-warning random";
     let border = "col-sm-6 offset-3 block";
     let starStatus = "star";
+    
     if (this.state.btnStatus) {
       btnStyle = "btn btn-danger random";
     }
@@ -85,7 +87,6 @@ class ContactItem extends React.Component {
             <div className="panel-body p-t-10">
               <div className="media-main">
                 <a className="pull-left" href="#">
-
                   <img className="thumb-lg img-circle bx-s" src={url} alt="" />
                 </a>
                 <div className="pull-right btn-group-sm">
@@ -110,7 +111,7 @@ class ContactItem extends React.Component {
                   </a>
                 </div>
                 <div className="info">
-                  <p className="text-muted">{gender}</p>
+                  <p className="text-muted">star is:{stared}</p>
                   <h4>{name}</h4>
                   <p className="text-muted">{description}</p>
                 </div>
@@ -184,7 +185,7 @@ class ContactItem extends React.Component {
                   </a>
                 </li>
               </ul>
-              <span onClick={this.Favorite} className={starStatus}>
+              <span onClick={this.props.Favor} className={starStatus}>
                 <i className="fa fa-star"></i>
               </span>
               <button
