@@ -1,6 +1,8 @@
 body{
   margin-top:20px;
-  background-color: #dadada;    
+ background: -webkit-linear-gradient(top, rgba(13, 59, 168, 0.8) 0%, rgb(12, 137, 131) 51%, rgba(145, 168, 13, 0.8) 100%);   
+ background-repeat: no-repeat;
+ padding-bottom: 10px;
 }
 .btn-primary, 
 .btn-primary:hover, 
@@ -47,5 +49,5 @@ body{
 }
 h2,h1{
   text-align: center;
-  color: #7A7676;
+  color: rgb(202, 211, 83);
 }

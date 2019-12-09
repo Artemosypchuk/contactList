@@ -19,9 +19,13 @@ li > a:hover {
 }
 .fa-pencil {
   transition: all 500ms;
+}.fa-close {
+  transition: all 500ms;
 }
-.fa-pencil:hover {
+.tooltips:hover .fa-pencil{
   transform: rotate(-45deg);
+}.tooltips:hover .fa-close{
+  transform: rotate(-180deg);
 }
 .btn-warning,
 .random {
