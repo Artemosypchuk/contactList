@@ -47,7 +47,6 @@ class ContactItem extends React.Component {
       messs,
       skyPe,
       id,
-      stared
     } = this.state;
 
     let url = `https://randomuser.me/api/portraits/${gender}/${avatar}.jpg`;

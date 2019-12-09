@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import "./contact_list.css";
 import ContactItem from "./contactItem/contact_Item";
 
-const ContactList = ({ ContactList, onDelete, Favor }) => {
+const ContactList = ({ ContactList, onDelete, Favor, }) => {
   const listItem = ContactList.map(item => {
     return (
       <ContactItem

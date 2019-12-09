@@ -23,7 +23,7 @@ class App extends React.Component {
       },
 
       {
-        favorite: true,
+        favorite: false,
         name: "Julia Roberts",
         description: "Treny",
         avatar: 33,
@@ -39,7 +39,7 @@ class App extends React.Component {
       },
 
       {
-        favorite: true,
+        favorite: false,
         name: "Geoffrey Rush",
         description: "Distructor",
         avatar: 18,
@@ -69,7 +69,7 @@ class App extends React.Component {
       },
 
       {
-        favorite: true,
+        favorite: false,
         name: "Sylvester Stallone",
         description: "Descriptor",
         avatar: 1,
@@ -107,12 +107,19 @@ class App extends React.Component {
 
   Favor = id => {
     const index = this.state.List.findIndex(elem => elem.id === id);
-    var NewList = this.state.List.slice();
+    const NewList = this.state.List.slice();
     NewList[index].favorite = !NewList[index].favorite;
-
+    if (NewList[index].favorite) {
+      NewList[index].id = NewList[index].id * 10
+    }
+    else { NewList[index].id = NewList[index].id / 10 }
+    NewList.sort((a, b) => {
+      console.log(a.id,b.id)
+      return b.id - a.id
+       })
     this.setState(() => {
       return {
-        favorite:this.NewList
+        List:NewList
       };
     });
   };
