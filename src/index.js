@@ -1,8 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Search from "./components/SearchComponent/search";
+
 import ContactList from "./components/contact_list/contact_list";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import About from "./components/About/About.js";
+import NotFound from "./components/NotFound/NotFound.js";
+import AddContact from "./components/AddContact/AddContact.js";
+import MainMenu from "./components/mainMenu/mainMenu.js"
 
 class App extends React.Component {
   state = {
@@ -110,30 +115,47 @@ class App extends React.Component {
     const NewList = this.state.List.slice();
     NewList[index].favorite = !NewList[index].favorite;
     if (NewList[index].favorite) {
-      NewList[index].id = NewList[index].id * 10
+      NewList[index].id = NewList[index].id * 10;
+    } else {
+      NewList[index].id = NewList[index].id / 10;
     }
-    else { NewList[index].id = NewList[index].id / 10 }
     NewList.sort((a, b) => {
-      console.log(a.id,b.id)
-      return b.id - a.id
-       })
+      console.log(a.id, b.id);
+      return b.id - a.id;
+    });
     this.setState(() => {
       return {
-        List:NewList
+        List: NewList
       };
     });
   };
 
   render() {
     return (
-      <div className="container bootstrap snippet">
-        <h1> Contact List </h1> <Search> </Search>
-        <ContactList
-          ContactList={this.state.List}
-          Favor={this.Favor}
-          onDelete={this.onDelete}
-        ></ContactList>
-      </div>
+      <Router>
+        <div className="container bootstrap snippet">
+          <h1> Contact List </h1>
+      <MainMenu></MainMenu>
+          <Switch>
+            <Route
+              path="/"
+              exact
+              component={() => (
+                <ContactList
+                  ContactList={this.state.List}
+                  onDelete={this.onDelete}
+                  Favor={this.Favor}
+                />
+              )}
+            ></Route>
+            <Route path="/about" exact component = {About}></Route>
+            <Route path="/add" exact component = {AddContact}></Route>
+            <Route path="*" exact component = {NotFound}></Route>
+
+
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }

@@ -1,0 +1,5 @@
+<ContactList
+          ContactList={this.state.List}
+          Favor={this.Favor}
+          onDelete={this.onDelete}
+        ></ContactList>
