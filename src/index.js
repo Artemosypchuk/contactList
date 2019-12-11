@@ -4,10 +4,10 @@ import "./index.css";
 
 import ContactList from "./components/contact_list/contact_list";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import About from "./components/About/About.js";
-import NotFound from "./components/NotFound/NotFound.js";
-import AddContact from "./components/AddContact/AddContact.js";
-import MainMenu from "./components/mainMenu/mainMenu.js"
+import About from "./components/About/About";
+import NotFound from "./components/NotFound/NotFound";
+import AddContact from "./components/AddContact/AddContact";
+import MainMenu from "./components/mainMenu/mainMenu";
 
 class App extends React.Component {
   state = {
@@ -120,7 +120,6 @@ class App extends React.Component {
       NewList[index].id = NewList[index].id / 10;
     }
     NewList.sort((a, b) => {
-      console.log(a.id, b.id);
       return b.id - a.id;
     });
     this.setState(() => {
@@ -135,7 +134,8 @@ class App extends React.Component {
       <Router>
         <div className="container bootstrap snippet">
           <h1> Contact List </h1>
-      <MainMenu></MainMenu>
+
+          <MainMenu></MainMenu>
           <Switch>
             <Route
               path="/"
@@ -148,11 +148,9 @@ class App extends React.Component {
                 />
               )}
             ></Route>
-            <Route path="/about" exact component = {About}></Route>
-            <Route path="/add" exact component = {AddContact}></Route>
-            <Route path="*" exact component = {NotFound}></Route>
-
-
+            <Route path="/about" exact component={About}></Route>
+            <Route path="/add" exact component={AddContact}></Route>
+            <Route path="*" exact component={NotFound}></Route>
           </Switch>
         </div>
       </Router>

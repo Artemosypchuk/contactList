@@ -1,0 +1,22 @@
+.nav-item>a{
+  text-decoration: none;
+  color: azure;
+  padding: 10px;
+}
+.nav-item>a:hover{
+    text-decoration: none;
+    color: azure;
+  }
+.nav-item {
+  text-decoration: none;
+  margin-left: 25px;
+  margin-bottom: 10px;
+
+}
+.nav{
+    list-style: none;
+    
+}
+nav{
+    width: 100%;
+}

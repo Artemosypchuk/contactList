@@ -1,0 +1,9 @@
+.l-side {
+  height: 75vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+.form-check{
+    height: 25px;
+}
