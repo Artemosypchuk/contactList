@@ -10,6 +10,7 @@ import AddContact from "./components/AddContact/AddContact";
 import MainMenu from "./components/mainMenu/mainMenu";
 
 class App extends React.Component {
+  id = 100;
   state = {
     List: [
       {
@@ -90,6 +91,23 @@ class App extends React.Component {
     ]
   };
 
+  onAddNewContact = (name, description, avatar, gender) => {
+    console.log(name, description, gender, avatar);
+    this.id++;
+    const newContact = {
+      name: name,
+      description: description,
+      avatar: avatar,
+      gender: gender,
+      favorite: false,
+      id: this.id
+    }; 
+    this.setState(()=>{
+      this.state.List.unshift(newContact)
+    })
+   
+  };
+
   onDelete = id => {
     const index = this.state.List.findIndex(elem => elem.id === id);
     let NewList = [];
@@ -145,11 +163,18 @@ class App extends React.Component {
                   ContactList={this.state.List}
                   onDelete={this.onDelete}
                   Favor={this.Favor}
+                  onAddNewContact={this.onAddNewContact}
                 />
               )}
             ></Route>
             <Route path="/about" exact component={About}></Route>
-            <Route path="/add" exact component={AddContact}></Route>
+            <Route
+              path="/add"
+              exact
+              component={() => (
+                <AddContact AddNewContact={this.onAddNewContact} />
+              )}
+            ></Route>
             <Route path="*" exact component={NotFound}></Route>
           </Switch>
         </div>
