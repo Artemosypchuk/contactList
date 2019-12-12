@@ -3,9 +3,11 @@ import "./addContact.css";
 class AddContact extends React.Component {
 
   render() {
-    let url = `https://randomuser.me/api/portraits/men/55.jpg`;
+   
     return (
+    <form type="text">
       <div className="l-side">
+        
         <div>
           <h6>Enter your full name</h6>
           <input name="name" type="text" />
@@ -42,9 +44,10 @@ class AddContact extends React.Component {
         <input type="number" step="1" defaultValue="5" min="1" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
         </div>
         <div>
-        <button type="button" className="btn btn-primary btn-lg btn-block">Create Contact</button>
+        <button type="button submit" className="btn btn-primary btn-lg btn-block">Create Contact</button>
         </div>
-      </div>
+       
+      </div> </form>
     );
   }
 }
