@@ -4,7 +4,7 @@ import "./contact_list.css";
 import ContactItem from "./contactItem/contact_Item";
 import Search from "../SearchComponent/search.js";
 
-const ContactList = ({ ContactList, onDelete, Favor, onAddNewContact }) => {
+const ContactList = ({ ContactList, onDelete, Favor,Editor }) => {
   const listItem = ContactList.map(item => {
     return (
       <ContactItem
@@ -21,6 +21,7 @@ const ContactList = ({ ContactList, onDelete, Favor, onAddNewContact }) => {
         onDelete={() => onDelete(item.id)}
         favorite={item.favorite}
         Favor={() => Favor(item.id)}
+        Editor={() => Editor(item.id)}
       ></ContactItem>
     );
   });

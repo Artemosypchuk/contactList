@@ -4,8 +4,9 @@ class AddContact extends React.Component {
   state = {
     name: "",
     description: "",
-    avatar: "",
-    gender: ""
+    avatar: "0",
+    gender: "men",
+    favorite: false
   };
   GetGender = e => {
     this.setState({
@@ -27,13 +28,19 @@ class AddContact extends React.Component {
       avatar: e.target.value
     });
   };
+  GetFavorit = e => {
+    this.setState({
+      favorite: e.target.value
+    });
+  };
   onSubmit = e => {
     e.preventDefault();
-    const { name, description, avatar, gender } = this.state;
-    this.props.AddNewContact(name, description, avatar, gender);
+    const { name, description, avatar, gender, favorite } = this.state;
+    this.props.AddNewContact(name, description, avatar, gender, favorite);
   };
   render() {
-    console.log(this.state.name);
+    let url = `https://randomuser.me/api/portraits/${this.state.gender}/${this.state.avatar}.jpg`;
+    console.log(this.state.favorite);
     return (
       <form onSubmit={this.onSubmit} type="text">
         <div className="l-side">
@@ -53,18 +60,33 @@ class AddContact extends React.Component {
             </div>
           </div>
           <div className="col-3 p-0">
-            <h6>Choose your avatar number</h6>
             <input
-              type="number"
-              name="avatar"
-              step="1"
-              defaultValue="5"
-              min="1"
-              onChange={this.GetAvatar}
-              className="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-sm"
+              className="custom-control-input"
+              onChange={this.GetFavorit}
+              type="checkbox"
+              value={!this.state.favorite}
+              id="customCheck1"
+              required
             />
+            <label className="custom-control-label" htmlFor="customCheck1">
+              Add to favorite
+            </label><br></br>
+            <label className="label_txt" htmlFor="customRange3">
+              Avatar id: {this.state.avatar}
+            </label>
+            <input
+              type="range"
+              className="custom-range"
+              min="0"
+              max="99"
+              defaultValue={this.state.avatar}
+              onChange={this.GetAvatar}
+              step="1"
+              id="customRange3"
+            ></input>
+          </div>
+          <div className="imgEdit">
+            <img src={url} alt="Avatar" />
           </div>
           <div>
             <button

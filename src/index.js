@@ -8,9 +8,9 @@ import About from "./components/About/About";
 import NotFound from "./components/NotFound/NotFound";
 import AddContact from "./components/AddContact/AddContact";
 import MainMenu from "./components/mainMenu/mainMenu";
+import EditContact from "./components/EditContact/EditContact";
 
 class App extends React.Component {
-  id = 100;
   state = {
     List: [
       {
@@ -88,24 +88,56 @@ class App extends React.Component {
         messager: "uk/mm",
         id: 5
       }
-    ]
+    ],
+    Item: []
+  };
+  Editor = id => {
+    this.state.Item = [];
+    const index = this.state.List.findIndex(elem => elem.id === id);
+    const Object = this.state.List[index];
+    this.Object = { id: this.state.List.length * 100 };
+    const NewList = [...this.state.Item, Object];
+    this.state.List.splice(index, 1);
+    this.setState(() => {
+      return {
+        Item: NewList
+      };
+    });
   };
 
-  onAddNewContact = (name, description, avatar, gender) => {
-    console.log(name, description, gender, avatar);
-    this.id++;
+  EditContact = (name, description, avatar, gender, id) => {
+    const index = this.state.List.findIndex(elem => elem.id === id);
+    const Edited = {
+      name: name,
+      description: description,
+      avatar: avatar,
+      gender: gender,
+      favorite: this.state.Item[0].favorite,
+      id: this.state.Item[0].id
+    };
+    console.log(this.state.Item);
+    const NewList = [...this.state.List, Edited];
+    this.setState(() => {
+      return {
+        List: NewList
+      };
+    });
+  };
+  onAddNewContact = (name, description, avatar, gender,favorite) => {
     const newContact = {
       name: name,
       description: description,
       avatar: avatar,
       gender: gender,
-      favorite: false,
-      id: this.id
-    }; 
-    this.setState(()=>{
-      this.state.List.unshift(newContact)
-    })
-   
+      favorite: favorite,
+      id: this.state.List.length + 1
+    };
+    const NewList = [...this.state.List, newContact];
+    this.setState(() => {
+      return {
+        List: NewList
+      };
+    });
   };
 
   onDelete = id => {
@@ -119,12 +151,9 @@ class App extends React.Component {
       }
     }
     this.setState(() => {
-      return (
-        console.log(NewList),
-        {
-          List: NewList
-        }
-      );
+      return {
+        List: NewList
+      };
     });
   };
 
@@ -163,7 +192,7 @@ class App extends React.Component {
                   ContactList={this.state.List}
                   onDelete={this.onDelete}
                   Favor={this.Favor}
-                  onAddNewContact={this.onAddNewContact}
+                  Editor={this.Editor}
                 />
               )}
             ></Route>
@@ -173,6 +202,16 @@ class App extends React.Component {
               exact
               component={() => (
                 <AddContact AddNewContact={this.onAddNewContact} />
+              )}
+            ></Route>
+            <Route
+              path="/edit"
+              exact
+              component={() => (
+                <EditContact
+                  Editor={this.state.Item}
+                  EditContact={this.EditContact}
+                />
               )}
             ></Route>
             <Route path="*" exact component={NotFound}></Route>

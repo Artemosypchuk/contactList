@@ -1,5 +1,6 @@
 import React from "react";
 import "./contact_Item.css";
+import { Link } from "react-router-dom";
 
 // const e = React.createElement;
 
@@ -47,7 +48,7 @@ class ContactItem extends React.Component {
       linked,
       messs,
       skyPe,
-      id,
+      id
     } = this.state;
 
     let url = `https://randomuser.me/api/portraits/${gender}/${avatar}.jpg`;
@@ -85,15 +86,16 @@ class ContactItem extends React.Component {
                   <img className="thumb-lg img-circle bx-s" src={url} alt="" />
                 </a>
                 <div className="pull-right btn-group-sm">
-                  <a
-                    href="#"
+                  <Link
+                    to="/edit"
                     className="btn btn-success tooltips"
                     data-placement="top"
                     data-toggle="tooltip"
                     data-original-title="Edit"
+                    onClick={this.props.Editor}
                   >
                     <i className="fa fa-pencil"></i>
-                  </a>
+                  </Link>
                   <a
                     href="#"
                     className="btn btn-danger tooltips"

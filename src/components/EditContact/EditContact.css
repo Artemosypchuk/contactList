@@ -1,0 +1,27 @@
+.imgEdit{
+    position: absolute;
+    left:300px;
+    top: 100px;
+}
+.imgEdit>img{
+    width: 250px;
+    border: inset 15px rgb(0, 162, 255);
+    box-shadow: 1px 1px 1px black;
+}
+.label_txt{
+    font-size: large;
+    color: burlywood;
+}
+.l-side{
+    position: relative;
+}
+@media screen and (max-width: 991px) {
+    .imgEdit>img{
+        width: 150px;
+    }
+    .imgEdit{
+        position: absolute;
+        left:100px;
+        top: 300px;
+    }
+}
