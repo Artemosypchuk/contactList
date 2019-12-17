@@ -1,5 +1,5 @@
 import React from "react";
-import "./EditContact.css"
+import "./EditContact.css";
 
 class EditContact extends React.Component {
   state = {
@@ -57,7 +57,7 @@ class EditContact extends React.Component {
       this.state.avatar = this.avatar;
     }
     let url = `https://randomuser.me/api/portraits/${this.state.gender}/${this.state.avatar}.jpg`;
-  
+
     return (
       <form onSubmit={this.onChanged} type="text">
         <div className="l-side">
@@ -100,7 +100,9 @@ class EditContact extends React.Component {
           </div>
           <div className="col-3 p-0 label_txt">
             <h6>Scroll your avatar Default is: {this.avatar}</h6>
-            <label className="label_txt" htmlFor="customRange3">now: {this.state.avatar}</label>
+            <label className="label_txt" htmlFor="customRange3">
+              now: {this.state.avatar}
+            </label>
             <input
               type="range"
               className="custom-range"

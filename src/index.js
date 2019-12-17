@@ -123,7 +123,7 @@ class App extends React.Component {
       };
     });
   };
-  onAddNewContact = (name, description, avatar, gender,favorite) => {
+  onAddNewContact = (name, description, avatar, gender, favorite) => {
     const newContact = {
       name: name,
       description: description,
